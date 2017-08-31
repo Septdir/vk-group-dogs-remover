@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VK - Group dogs remover</title>
+	<link rel="stylesheet" href="assets/uikit.min.css">
+	<script src="assets/jquery.min.js"></script>
+	<script src="assets/uikit.min.js"></script>
+	<script src="assets/uikit-icons.min.js"></script>
+	<script src="assets/ajax.js"></script>
+	<style>
+		html {background: #EDEEF0;} [data-dog] {opacity: 0.6;} [data-dog] .uk-card {border: 2px solid #f0506e;}
+	</style>
+</head>
+<body>
+<div class="uk-container uk-margin-top">
+	<h1 class="uk-text-center uk-text-uppercase">VK - Group dogs remover</h1>
+	<form id="form" class="uk-text-center" name="ajax">
+		<input name="access_token" class="uk-input uk-form-width-large" type="text" placeholder="Access Token" required>
+		<input name="group_id" class="uk-input uk-form-width-medium" type="text" placeholder="Group id" required>
+		<input name="count" class="uk-input uk-form-width-small" type="text" placeholder="Step" required value="50">
+		<input name="offset" type="hidden" value="0">
+		<input name="fields" type="hidden" value="'first_name,last_name,photo_max">
+		<button type="submit" class="uk-button uk-button-primary">Start</button>
+	</form>
+	<div id="porgresslabel">
+		<strong class="uk-hidden members">Get Members</strong>
+		<strong class="uk-hidden remove">Remove dogs</strong>
+	</div>
+	<progress id="progressbar" class="uk-progress uk-hidden" value="0" max="0"></progress>
+	<div id="counter"
+		 class="uk-hidden uk-margin-small-top uk-margin-small-bottom uk-card uk-card-default uk-padding-small">
+		<strong>Get Members</strong>: <span class="total">0/0</span>
+		<strong>Dogs Remove</strong>: <span class="remove">0</span> / <span class="dogs">0</span>
+	</div>
+	<div id="result" class="uk-grid-margin uk-grid-match" data-uk-grid>
+
+	</div>
+</div>
+</body>
+</html>
