@@ -1,2 +1,2 @@
-# vk-group-dogs-remover
-Remove Dogs form vk group
+# VK Group Dogs Remover
+Remove dogs form vk group
