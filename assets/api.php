@@ -27,6 +27,7 @@ class vkApi
 			{
 				$query[$param['name']] = $param['value'];
 			}
+
 			$url = 'https://api.vk.com/method/' . $method . '?' . http_build_query($query);
 
 			if (function_exists('curl_init'))
@@ -58,6 +59,10 @@ class vkApi
 		$api    = $this->send($method, $params);
 
 		$users        = new stdClass();
+		if (!empty( $api->error)) {
+			$users->error = $api->error;
+			return $users;
+		}
 		$users->total = $api->response->count;
 		$users->count = count($api->response->users);
 		$users->array = $api->response->users;
@@ -121,6 +126,10 @@ $api    = new vkApi();
 if ($task == 'getMembers')
 {
 	$users = $api->getMembers($params);
+	if (!empty($users->error)) {
+		echo print_r($users->error, true);
+		exit();
+	}
 	$dogs  = $api->getDogs($users->array);
 	$html  = $api->getMembersHTML($users->array);
 
