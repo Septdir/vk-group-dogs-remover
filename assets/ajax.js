@@ -16,21 +16,22 @@ $(document).ready(function () {
 		getMembers();
 		return false;
 	});
+
 	function removeDogs() {
 		var form = $('#form');
 		var button = $(form).find('button');
-		var progressbar =  $('#progressbar');
+		var progressbar = $('#progressbar');
 		var counter = $('#counter');
 		var task = 'removeUser';
 		var dogs = $('#result').find('[data-dog]');
-		var dogsTotal = $(counter).find('.dogs').text() *1;
+		var dogsTotal = $(counter).find('.dogs').text() * 1;
 		$(progressbar).attr('max', dogsTotal);
 
-		if (dogs.length > 0 ) {
+		if (dogs.length > 0) {
 			var dog = dogs[0];
 			var id = $(dog).data('dog');
 			var params = $(form).serializeArray();
-			params.push({'name': 'user_id', 'value': id });
+			params.push({'name': 'user_id', 'value': id});
 
 			$.ajax({
 				type: 'POST',
@@ -71,7 +72,7 @@ $(document).ready(function () {
 		var form = $('#form');
 		var params = $(form).serializeArray();
 		var button = $(form).find('button');
-		var progressbar =  $('#progressbar');
+		var progressbar = $('#progressbar');
 		var counter = $('#counter');
 		var task = 'getMembers';
 		$.ajax({
@@ -95,15 +96,15 @@ $(document).ready(function () {
 				var offset = $(offsetfiled).val() * 1;
 				var newoffset = count + offset;
 				var step = $(form).find('input[name="count"]').val() * 1;
-				var dogs = $('#counter').find('.dogs').text() *1;
+				var dogs = $('#counter').find('.dogs').text() * 1;
 
 				$(offsetfiled).val(newoffset);
 				$(counter).find('.total').html(newoffset + '/' + response.total);
-				$(counter).find('.dogs').html(dogs + (response.dogs *1));
+				$(counter).find('.dogs').html(dogs + (response.dogs * 1));
 
 
 				var progressMax = $(progressbar).attr('max');
-				if ( progressMax != response.total) {
+				if (progressMax != response.total) {
 					$(progressbar).attr('max', response.total);
 				}
 				$(progressbar).attr('value', newoffset);
@@ -119,12 +120,12 @@ $(document).ready(function () {
 					$(progressbar).addClass('uk-hidden');
 					$('#progressbar').attr('value', '0').attr('max', '10000');
 					$('#porgresslabel').find('.members').addClass('uk-hidden');
-					removeDogs();
+					if ($(form).find('input[name="remove"]').is(':checked')) {
+						removeDogs();
+					}
 				}
-
-
 			}
 		});
 	}
-	
+
 });

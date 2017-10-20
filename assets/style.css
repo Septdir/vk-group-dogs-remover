@@ -1,0 +1,27 @@
+/**
+ *  * @package    VK - Group dogs remover
+ *  * @version    1.0.1
+ *  * @author     Igor Berdicheskiy - septdir.ru
+ *  * @copyright  Copyright (c) 2013 - 2017 Igor Berdicheskiy. All rights reserved.
+ *  * @license    GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ *  * @link       https://septdir.ru
+ */
+
+html {
+	background: #EDEEF0;
+}
+
+[data-dog] {
+	opacity: 0.6;
+}
+
+[data-dog] .uk-card {
+	border: 2px solid #f0506e;
+}
+
+.uk-radio, .uk-checkbox {
+	-moz-appearance: none;
+}
+.uk-button-default {
+	background: #fff;
+}
