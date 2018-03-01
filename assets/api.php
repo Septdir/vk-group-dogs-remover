@@ -22,7 +22,7 @@ class vkApi
 
 		if (!empty($method) && count($params) > 0)
 		{
-			$query = array();
+			$query = array('v'=> '5.8');
 			foreach ($params as $param)
 			{
 				$query[$param['name']] = $param['value'];
@@ -93,10 +93,10 @@ class vkApi
 			$dogsdata = '';
 			if (!empty($user->deactivated))
 			{
-				$dogsdata = ' data-dog="' . $user->uid . '"';
+				$dogsdata = ' data-dog="' . $user->id . '"';
 			}
 			$name = $user->first_name . ' ' . $user->last_name;
-			$html .= '<div id="' . $user->uid . '" class="uk-width-1-6@m"' . $dogsdata . ' >';
+			$html .= '<div id="' . $user->id . '" class="uk-width-1-6@m"' . $dogsdata . ' >';
 			$html .= '<div class="uk-card uk-card-default uk-text-center uk-height-1-1">';
 			$html .= '<div class="">';
 			$html .= '<img src="' . $user->photo_max . '" alt="' . $name . '" class="uk-width-1-1" />';
