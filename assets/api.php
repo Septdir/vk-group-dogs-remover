@@ -77,7 +77,7 @@ class vkApi
 		{
 			if (!empty($user->deactivated))
 			{
-				$dogs[$user->uid] = $user;
+				$dogs[$user->id] = $user;
 			}
 
 		}
